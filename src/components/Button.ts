@@ -4,12 +4,16 @@ import { customElement } from "lit/decorators.js";
 @customElement("my-button")
 export class Button extends LitElement {
 	static override styles = css`
-		p {
-			color: green;
+		button {
+			border: none;
+			background-color: blue;
+			border-radius: 0.25rem;
+			padding: 1rem;
+			margin: 0;
 		}
 	`;
 
 	override render() {
-		return html`<my-text>Hello world</my-text>`;
+		return html`<button><my-text color="light">Hello world</my-text></button>`;
 	}
 }
