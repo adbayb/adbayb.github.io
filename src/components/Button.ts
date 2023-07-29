@@ -1,7 +1,7 @@
 import { LitElement, css, html } from "lit";
+import { customElement } from "lit/decorators.js";
 
-const tagName = "my-element";
-
+@customElement("my-button")
 export class Button extends LitElement {
 	static override styles = css`
 		p {
@@ -10,8 +10,6 @@ export class Button extends LitElement {
 	`;
 
 	override render() {
-		return html`<p aria-atomic="true">Web component</p> `;
+		return html`<my-text>Hello world</my-text>`;
 	}
 }
-
-customElements.define(tagName, Button);

@@ -13,12 +13,14 @@
     "@astrojs/lit": "^2.1.0",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^2.9.6",
-    "lit": "^2.7.0"
+    "lit": "^2.7.6"
   },
   "devDependencies": {
     "@adbayb/eslint-config": "0.14.0",
     "@adbayb/prettier-config": "0.14.0",
     "@adbayb/ts-config": "0.14.0",
+    "@typescript-eslint/eslint-plugin": "6.2.0",
+    "@typescript-eslint/parser": "6.2.0",
     "eslint": "8.46.0",
     "eslint-plugin-astro": "0.28.0",
     "eslint-plugin-prettier": "5.0.0",
@@ -26,5 +28,11 @@
     "prettier-plugin-astro": "0.11.0",
     "typescript": "5.1.6",
     "vitest": "0.33.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@typescript-eslint/eslint-plugin": "6.2.0",
+      "@typescript-eslint/parser": "6.2.0"
+    }
   }
 }
