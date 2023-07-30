@@ -10,10 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/lit": "^2.1.0",
-    "@webcomponents/template-shadowroot": "^0.2.1",
+    "@astrojs/solid-js": "^2.2.0",
     "astro": "^2.9.6",
-    "lit": "^2.7.6"
+    "solid-js": "^1.4.3"
   },
   "devDependencies": {
     "@adbayb/eslint-config": "0.14.0",
