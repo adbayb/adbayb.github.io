@@ -58,15 +58,6 @@ const vars = createGlobalTheme(":root", {
 	},
 });
 
-type BreakpointToken = keyof typeof breakpoint;
-
-const breakpoint = {
-	base: 0,
-	small: 380,
-	medium: 780,
-	large: 1200,
-} as const;
-
 const spacing = vars.spacing;
 const negativeSpacing = {
 	["-xsmall"]: `${calc(spacing.xsmall).negate()}`,
@@ -84,20 +75,14 @@ const withNegativeSpacing = {
 };
 
 const properties = defineProperties({
-	conditions: (Object.keys(breakpoint) as Array<BreakpointToken>).reduce(
-		(conditions, key) => {
-			conditions[key] =
-				key === "base"
-					? {}
-					: {
-							"@media": `screen and (min-width: ${breakpoint[key]}px)`,
-					  };
-
-			return conditions;
-		},
-		{} as Record<string, Record<string, string>>
-	),
-	defaultCondition: "base",
+	conditions: {
+		none: {},
+		small: { "@media": "screen and (min-width: 370px)" },
+		medium: { "@media": "screen and (min-width: 768px)" },
+		large: { "@media": "screen and (min-width: 1024px)" },
+		hover: { selector: "&:hover" },
+	},
+	defaultCondition: "none",
 	properties: {
 		color: vars.color,
 		backgroundColor: vars.color,
@@ -135,6 +120,8 @@ const properties = defineProperties({
 		marginY: ["marginTop", "marginBottom"],
 	},
 });
+
+export const styleKeys = Object.keys(properties.styles) as Array<keyof Styles>;
 
 export const styles = createSprinkles(properties);
 

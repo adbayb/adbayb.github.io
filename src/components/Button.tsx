@@ -11,7 +11,7 @@ export const Button = () => {
 		<View
 			as="button"
 			paddingX="small"
-			backgroundColor={{ small: "blue-100" }}
+			backgroundColor={{ small: "blue-100", hover: "gray-100" }}
 		>
 			Counter {count()}
 		</View>
