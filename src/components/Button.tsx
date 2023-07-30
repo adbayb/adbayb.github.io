@@ -1,4 +1,5 @@
 import { createSignal, onCleanup } from "solid-js";
+import { View } from "./View";
 
 export const Button = () => {
 	const [count, setCount] = createSignal(0);
@@ -6,5 +7,13 @@ export const Button = () => {
 
 	onCleanup(() => clearInterval(interval));
 
-	return <div>Count value is {count()}</div>;
+	return (
+		<View
+			as="button"
+			paddingX="small"
+			backgroundColor={{ small: "blue-100" }}
+		>
+			Counter {count()}
+		</View>
+	);
 };
