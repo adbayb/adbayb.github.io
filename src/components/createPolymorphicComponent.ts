@@ -15,7 +15,9 @@ export const createPolymorphicComponent = <
 	Component: (props: PolymorphicProps<OwnProps, DefaultAs>) => JSX.Element
 ) => {
 	return Component as {
+		// If `as` is provided consumer-side, use it to infer props:
 		<As extends AllowedAs>(props: PolymorphicProps<OwnProps, As>): JSX.Element;
+		// If no provided `as` property, use the default `as` element to infer props:
 		(props: Omit<PolymorphicProps<OwnProps, DefaultAs>, "as">): JSX.Element;
 	};
 };

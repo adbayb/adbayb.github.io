@@ -1,5 +1,6 @@
 import { createSignal, onCleanup } from "solid-js";
 import { View } from "./View";
+import { Text } from "./Text";
 
 export const Button = () => {
 	const [count, setCount] = createSignal(0);
@@ -13,7 +14,7 @@ export const Button = () => {
 			paddingX="small"
 			backgroundColor={{ small: "blue-100", hover: "gray-100" }}
 		>
-			Counter {count()}
+			<Text>Counter {count()}</Text>
 		</View>
 	);
 };
