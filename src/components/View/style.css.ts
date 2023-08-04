@@ -1,64 +1,8 @@
-import { createGlobalTheme } from "@vanilla-extract/css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { calc } from "@vanilla-extract/css-utils";
+import { styleVariable } from "../Global";
 
-const px = (value: string | number) => `${value}px`;
-const HARMONY_FACTOR = 2;
-
-const vars = createGlobalTheme(":root", {
-	font: {
-		brand: 'Shrikhand, "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif',
-		heading:
-			'"DM Sans", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif',
-		body: '-apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
-		code: 'ml, "Roboto Mono", Menlo, monospace',
-	},
-	spacing: {
-		none: "0",
-		xsmall: px(1 * HARMONY_FACTOR),
-		small: px(2 * HARMONY_FACTOR),
-		medium: px(3 * HARMONY_FACTOR),
-		large: px(5 * HARMONY_FACTOR),
-		xlarge: px(8 * HARMONY_FACTOR),
-		xxlarge: px(12 * HARMONY_FACTOR),
-		xxxlarge: px(24 * HARMONY_FACTOR),
-	},
-	width: {
-		xsmall: px(480),
-		small: px(600),
-		standard: px(740),
-		large: px(960),
-		xlarge: px(1120),
-		xxlarge: px(1350),
-	},
-	weight: {
-		regular: "400",
-		strong: "700",
-	},
-	border: {
-		width: {
-			small: px(1 * HARMONY_FACTOR),
-			medium: px(2 * HARMONY_FACTOR),
-			large: px(4 * HARMONY_FACTOR),
-		},
-		radius: {
-			small: px(2 * HARMONY_FACTOR),
-			medium: px(4 * HARMONY_FACTOR),
-			large: px(7 * HARMONY_FACTOR),
-			rounded: "9999px",
-		},
-	},
-	color: {
-		"blue-100": "#eff6ff",
-		"blue-200": "#dbeafe",
-		"blue-300": "#bfdbfe",
-		"gray-100": "#374151",
-		"gray-200": "#1f2937",
-		"gray-300": "#111827",
-	},
-});
-
-const spacing = vars.spacing;
+const spacing = styleVariable.spacing;
 const negativeSpacing = {
 	["-xsmall"]: `${calc(spacing.xsmall).negate()}`,
 	["-small"]: `${calc(spacing.small).negate()}`,
@@ -84,8 +28,8 @@ const properties = defineProperties({
 	},
 	defaultCondition: "none",
 	properties: {
-		color: vars.color,
-		backgroundColor: vars.color,
+		color: styleVariable.color,
+		backgroundColor: styleVariable.color,
 		position: ["absolute", "relative", "fixed"],
 		display: ["none", "block", "inline", "inline-block", "flex"],
 		alignItems: ["flex-start", "center", "flex-end"],
@@ -103,9 +47,9 @@ const properties = defineProperties({
 		overflow: ["hidden"],
 		opacity: [0, 1],
 		textAlign: ["left", "center", "right"],
-		minWidth: vars.width,
-		maxWidth: vars.width,
-		width: vars.width,
+		minWidth: styleVariable.width,
+		maxWidth: styleVariable.width,
+		width: styleVariable.width,
 		transition: {
 			slow: "transform .3s ease, opacity .3s ease",
 			fast: "transform .15s ease, opacity .15s ease",
@@ -121,8 +65,10 @@ const properties = defineProperties({
 	},
 });
 
-export const styleKeys = Object.keys(properties.styles) as Array<keyof Styles>;
+export const styleKeys = Object.keys(properties.styles) as Array<
+	keyof StyleProps
+>;
 
-export const styles = createSprinkles(properties);
+export const style = createSprinkles(properties);
 
-export type Styles = Parameters<typeof styles>[0];
+export type StyleProps = Parameters<typeof style>[0];

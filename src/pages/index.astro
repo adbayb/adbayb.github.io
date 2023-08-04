@@ -1,5 +1,6 @@
 ---
 import { Button } from "../components/Button";
+import { Global } from "../components/Global";
 ---
 
 <!DOCTYPE html>
@@ -9,10 +10,6 @@ import { Button } from "../components/Button";
 		<meta
 			name="description"
 			content="Astro description"
-		/>
-		<meta
-			name="viewport"
-			content="width=device-width"
 		/>
 		<link
 			rel="icon"
@@ -24,6 +21,7 @@ import { Button } from "../components/Button";
 			content={Astro.generator}
 		/>
 		<title>Portfolio</title>
+		<Global />
 	</head>
 	<body>
 		<main>
@@ -40,24 +38,3 @@ import { Button } from "../components/Button";
 		</main>
 	</body>
 </html>
-<style is:global>
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-	}
-
-	html {
-		box-sizing: border-box;
-	}
-
-	*,
-	*::before,
-	*::after {
-		box-sizing: inherit;
-	}
-
-	main {
-		padding: 1rem;
-	}
-</style>

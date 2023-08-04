@@ -29,8 +29,10 @@ export const createPolymorphComponent = <
  */
 type PolymorphicProps<OwnProps extends object, As extends AnyElement> = Omit<
 	PropsOf<As>,
-	keyof OwnProps | "as"
+	keyof OwnProps | "as" | DisallowedAttributes
 > &
 	OwnProps & {
 		as: As;
 	};
+
+type DisallowedAttributes = "class" | "style";
