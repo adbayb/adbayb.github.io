@@ -6,7 +6,11 @@ export const Button = () => {
 		<View
 			as="button"
 			paddingX="small"
-			backgroundColor={{ small: "primary", hover: "secondary" }}
+			backgroundColor={{
+				default: "primary",
+				focus: "secondary",
+				hover: "secondary",
+			}}
 		>
 			<Text>Span</Text>
 			<Text as="p">P</Text>
