@@ -4,7 +4,7 @@
  * Another alternative will be to reset locally each element by implemention local reset techniques into the `View` component
  * @see https://sandroroth.com/blog/vanilla-extract-approach#box-component
  */
-import "./style.css";
+import "./reset.css";
 
 export const Global = () => {
 	return (

@@ -1,7 +1,7 @@
 import { type JSX, splitProps } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { AnyElement, createPolymorphComponent } from "./polymorphism";
-import { type StyleProps, style, styleKeys } from "./style.css";
+import { type StyleProps, createStyles, styleKeys } from "./styles.css";
 
 export interface ViewProps extends StyleProps {
 	unsafe_class?: JSX.HTMLAttributes<unknown>["class"];
@@ -22,7 +22,7 @@ export const View = createPolymorphComponent<
 		<Dynamic
 			{...otherProps}
 			component={as}
-			class={[unsafe_class, style(styleProps)].join(" ")}
+			class={[unsafe_class, createStyles(styleProps)].join(" ")}
 			style={unsafe_style}
 		>
 			{children}

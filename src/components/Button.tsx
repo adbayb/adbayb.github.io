@@ -6,7 +6,7 @@ export const Button = () => {
 		<View
 			as="button"
 			paddingX="small"
-			backgroundColor={{ small: "blue-10", hover: "gray-20" }}
+			backgroundColor={{ small: "primary", hover: "secondary" }}
 		>
 			<Text>Span</Text>
 			<Text as="p">P</Text>
