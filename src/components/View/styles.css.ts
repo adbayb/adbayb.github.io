@@ -44,6 +44,7 @@ const baseAtoms = defineProperties({
 	properties: {
 		cursor: ["none", "default", "pointer"],
 		borderRadius: theme.borders.radii,
+		borderStyle: ["none", "solid"],
 		borderWidth: theme.borders.sizes,
 		overflow: ["auto", "hidden", "scroll", "visible"],
 		pointerEvents: ["none", "auto"],
@@ -69,6 +70,7 @@ const colorAtoms = defineProperties({
 	properties: {
 		color: theme.colors,
 		backgroundColor: theme.colors,
+		borderColor: theme.colors,
 	},
 });
 
@@ -112,11 +114,11 @@ const responsiveAtoms = defineProperties({
 	},
 	shorthands: {
 		padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
-		paddingX: ["paddingLeft", "paddingRight"],
-		paddingY: ["paddingTop", "paddingBottom"],
+		paddingHorizontal: ["paddingLeft", "paddingRight"],
+		paddingVertical: ["paddingTop", "paddingBottom"],
 		margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"],
-		marginX: ["marginLeft", "marginRight"],
-		marginY: ["marginTop", "marginBottom"],
+		marginHorizontal: ["marginLeft", "marginRight"],
+		marginVertical: ["marginTop", "marginBottom"],
 	},
 });
 

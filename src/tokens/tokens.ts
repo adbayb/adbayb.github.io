@@ -9,9 +9,9 @@ const toRemValue = (pxValue: number) => pxValue / 16;
  */
 export const tokens = {
 	borders: {
-		radii: [px(0), px(2), px(4), px(6), "50%"],
+		radii: [px(0), px(4), px(8), px(12), px(999)],
 		// @todo: include border sizes within root size token + move radii upper in the token structure + apply the same logic within typography tokens
-		sizes: [px(0), px(1), px(2), px(3), px(4)],
+		sizes: [px(0), px(2), px(4), px(6), px(8)],
 	},
 	colors: {
 		transparent: "transparent",
