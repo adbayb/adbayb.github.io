@@ -12,7 +12,7 @@ globalStyle(`*`, {
 
 globalStyle(":root", {
 	...theme.typographies.body,
-	color: theme.colors["content.primary"],
+	color: theme.colors["contentPrimary"],
 	// backgroundColor: theme.colors["surface.primary"],
 	margin: 0,
 	padding: 0,

@@ -25,17 +25,18 @@ import { View } from "../components/View";
 		<Global />
 	</head>
 	<body>
-		<main>
-			<View
-				display="flex"
-				padding="medium"
-				gap="small"
-			>
-				<Button client:load>Action</Button>
-				<Button client:load>Action</Button>
-				<Button client:load>Action</Button>
-				<Button client:load>Action</Button>
-			</View>
-		</main>
+		<View
+			as="main"
+			display="flex"
+			padding="medium"
+			gap="small"
+			minHeight="100vh"
+			flexDirection="column"
+		>
+			<Button client:load>Action</Button>
+			<Button client:load>Action</Button>
+			<Button client:load>Action</Button>
+			<Button client:load>Action</Button>
+		</View>
 	</body>
 </html>

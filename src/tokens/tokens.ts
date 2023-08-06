@@ -8,11 +8,6 @@ const toRemValue = (pxValue: number) => pxValue / 16;
  * @see https://design-tokens.github.io/community-group/format/#types
  */
 export const tokens = {
-	borders: {
-		radii: [px(0), px(4), px(8), px(12), px(999)],
-		// @todo: include border sizes within root size token + move radii upper in the token structure + apply the same logic within typography tokens
-		sizes: [px(0), px(2), px(4), px(6), px(8)],
-	},
 	colors: {
 		transparent: "transparent",
 		black: "black",
@@ -53,6 +48,22 @@ export const tokens = {
 			"rgb(190,128,128)",
 		],
 	},
+	fonts: [
+		'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+	],
+	fontSizes: [
+		px(12),
+		px(14),
+		px(16),
+		px(18),
+		px(20),
+		px(22),
+		px(24),
+		px(28),
+		px(30),
+	],
+	fontWeights: ["100", "400", "900"],
+	radii: [px(0), px(4), px(8), px(12), px(999)],
 	sizes: [
 		rem(0),
 		rem(2),
@@ -75,21 +86,5 @@ export const tokens = {
 		rem(toRemValue(28)),
 		rem(toRemValue(32)),
 	],
-	typographies: {
-		fonts: [
-			'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-		],
-		sizes: [
-			px(12),
-			px(14),
-			px(16),
-			px(18),
-			px(20),
-			px(22),
-			px(24),
-			px(28),
-			px(30),
-		],
-		weights: ["100", "400", "900"],
-	},
+	thicknesses: [px(0), px(2), px(4), px(6), px(8)],
 } as const;

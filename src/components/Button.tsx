@@ -11,16 +11,16 @@ export const Button = ({ children }: ButtonProps) => {
 		<View
 			as="button"
 			backgroundColor={{
-				default: "neutral.dark",
-				hover: "surface.secondary",
+				default: "neutralDark",
+				hover: "surfaceSecondary",
 			}}
-			borderColor="neutral.dark"
+			borderColor="neutralDark"
 			borderStyle="solid"
 			borderWidth="small"
 			borderRadius="small"
 			paddingHorizontal="large"
 			paddingVertical="medium"
-			color="neutral.light"
+			color="neutralLight"
 			cursor="pointer"
 			onClick={() => console.log("click")}
 		>

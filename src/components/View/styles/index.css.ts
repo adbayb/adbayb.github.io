@@ -1,35 +1,8 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
-import { calc } from "@vanilla-extract/css-utils";
-import { theme } from "../../tokens";
-
-/**
- * Utility type to extract keys while discarding non stringified ones (eg. symbols)
- * @see https://github.com/microsoft/TypeScript/issues/41196#issuecomment-721828131
- */
-type ExtractStringifiedKeys<T extends { [k: string]: unknown }> =
-	T extends infer G ? `${string & keyof G}` : never;
-
-const negate = <
-	Props extends Record<string, string>,
-	Keys extends ExtractStringifiedKeys<Props>,
->(
-	props: Props
-) => {
-	return (Object.keys(props) as Array<Keys>).reduce(
-		(withNegativeProps, key) => {
-			const value = props[key] as string;
-
-			withNegativeProps[key] = value;
-
-			if (key === "none") return withNegativeProps; // no-op
-
-			withNegativeProps[`-${key}`] = `${calc(value).negate()}`;
-
-			return withNegativeProps;
-		},
-		{} as Record<Keys | `-${Exclude<Keys, "none">}`, string>
-	);
-};
+import { theme } from "../../../tokens";
+import * as dimension from "./properties/dimension";
+import * as margin from "./properties/margin";
+import * as padding from "./properties/padding";
 
 /**
  * Basic collection of atoms (or utility classes) that are not impacted by some conditions (such as responsive ones).
@@ -43,9 +16,9 @@ const negate = <
 const baseAtoms = defineProperties({
 	properties: {
 		cursor: ["none", "default", "pointer"],
-		borderRadius: theme.borders.radii,
+		borderRadius: theme.radii,
 		borderStyle: ["none", "solid"],
-		borderWidth: theme.borders.sizes,
+		borderWidth: theme.thicknesses,
 		overflow: ["auto", "hidden", "scroll", "visible"],
 		pointerEvents: ["none", "auto"],
 		userSelect: ["none", "auto"],
@@ -86,6 +59,9 @@ const responsiveAtoms = defineProperties({
 	},
 	defaultCondition: "default",
 	properties: {
+		...dimension.properties,
+		...margin.properties,
+		...padding.properties,
 		position: ["absolute", "relative", "fixed", "sticky"],
 		display: ["none", "block", "inline", "flex", "inline-flex", "grid"],
 		alignItems: ["flex-start", "center", "flex-end", "stretch"],
@@ -98,19 +74,8 @@ const responsiveAtoms = defineProperties({
 		],
 		flexDirection: ["column", "row"],
 		gap: theme.spaces,
-		paddingTop: theme.spaces,
-		paddingBottom: theme.spaces,
-		paddingLeft: theme.spaces,
-		paddingRight: theme.spaces,
-		marginTop: negate(theme.spaces),
-		marginBottom: negate(theme.spaces),
-		marginLeft: negate(theme.spaces),
-		marginRight: negate(theme.spaces),
 		opacity: [0, 1],
 		textAlign: ["left", "center", "right"],
-		minWidth: theme.sizes,
-		maxWidth: theme.sizes,
-		width: theme.sizes,
 	},
 	shorthands: {
 		padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],

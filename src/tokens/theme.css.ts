@@ -7,21 +7,19 @@ import { tokens } from "./tokens";
  * Each token value are persisted through CSS variables.
  */
 export const theme = createGlobalTheme(":root", {
-	borders: {
-		radii: {
-			none: tokens.borders.radii[0],
-			small: tokens.borders.radii[1],
-			medium: tokens.borders.radii[2],
-			large: tokens.borders.radii[3],
-			full: tokens.borders.radii[4],
-		},
-		sizes: {
-			none: tokens.borders.sizes[0],
-			small: tokens.borders.sizes[1],
-			medium: tokens.borders.sizes[2],
-			large: tokens.borders.sizes[3],
-			xlarge: tokens.borders.sizes[4],
-		},
+	radii: {
+		none: tokens.radii[0],
+		small: tokens.radii[1],
+		medium: tokens.radii[2],
+		large: tokens.radii[3],
+		full: tokens.radii[4],
+	},
+	thicknesses: {
+		none: tokens.thicknesses[0],
+		small: tokens.thicknesses[1],
+		medium: tokens.thicknesses[2],
+		large: tokens.thicknesses[3],
+		xlarge: tokens.thicknesses[4],
 	},
 	spaces: {
 		none: tokens.spaces[0],
@@ -43,18 +41,18 @@ export const theme = createGlobalTheme(":root", {
 	},
 	typographies: {
 		body: {
-			fontFamily: tokens.typographies.fonts[0],
-			fontSize: tokens.typographies.sizes[2],
-			fontWeight: tokens.typographies.weights[1],
+			fontFamily: tokens.fonts[0],
+			fontSize: tokens.fontSizes[2],
+			fontWeight: tokens.fontWeights[1],
 		},
 	},
 	colors: {
-		"neutral.transparent": tokens.colors.transparent,
-		"neutral.light": tokens.colors.white,
-		"neutral.dark": tokens.colors.black,
-		"surface.primary": tokens.colors.blue[4],
-		"surface.secondary": tokens.colors.blue[2],
-		"content.primary": tokens.colors.gray[4],
-		"content.secondary": tokens.colors.gray[3],
+		neutralTransparent: tokens.colors.transparent,
+		neutralLight: tokens.colors.white,
+		neutralDark: tokens.colors.black,
+		surfacePrimary: tokens.colors.blue[4],
+		surfaceSecondary: tokens.colors.blue[2],
+		contentPrimary: tokens.colors.gray[4],
+		contentSecondary: tokens.colors.gray[3],
 	},
 } as const);
