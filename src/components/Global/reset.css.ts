@@ -7,10 +7,13 @@ import { theme } from "../../tokens";
 globalStyle(`*`, {
 	all: "unset",
 	display: "revert",
+	outline: "revert",
 });
 
 globalStyle(":root", {
 	...theme.typographies.body,
+	color: theme.colors["content.primary"],
+	// backgroundColor: theme.colors["surface.primary"],
 	margin: 0,
 	padding: 0,
 	boxSizing: "border-box",

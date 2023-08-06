@@ -7,9 +7,9 @@ export const Button = () => {
 			as="button"
 			paddingX="small"
 			backgroundColor={{
-				default: "primary",
-				focus: "secondary",
-				hover: "secondary",
+				default: "surface.primary",
+				focus: "surface.secondary",
+				hover: "surface.secondary",
 			}}
 		>
 			<Text>Span</Text>

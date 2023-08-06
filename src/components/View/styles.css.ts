@@ -2,10 +2,10 @@ import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { theme } from "../../tokens";
 
 /**
- * Basic atoms that are not impacted by some conditions (such as responsive ones).
- * An atom represents a single-purpose and reusable CSS property (to prevent CSS code duplication with an atomic CSS approach).
+ * Basic collection of atoms (or utility classes) that are not impacted by some conditions (such as responsive ones).
+ * An atom prevents CSS code duplication by sharing single-purpose class name following the atomic CSS approach.
  *
- * Several atom collections are created to optimize the way vanilla extract generates class names.
+ * Several set of utility classes have been created to optimize the way vanilla extract generates class names.
  * Indeed, it will generate the styles for all defined properties regardless if used or not.
  * The number of CSS rules is even more increased if some `conditions` are defined (basically, the properties will be generated per defined condition as well).
  * It's important to make sure to define only conditions and values that are needed.
@@ -13,8 +13,10 @@ import { theme } from "../../tokens";
 const baseAtoms = defineProperties({
 	properties: {
 		cursor: ["none", "default", "pointer"],
-		pointerEvents: ["none", "auto"],
+		borderRadius: theme.borders.radii,
+		borderWidth: theme.borders.sizes,
 		overflow: ["auto", "hidden", "scroll", "visible"],
+		pointerEvents: ["none", "auto"],
 		userSelect: ["none", "auto"],
 		transition: {
 			slow: "transform .3s ease, opacity .3s ease",
@@ -24,7 +26,7 @@ const baseAtoms = defineProperties({
 });
 
 /**
- * Color atoms
+ * Color utility
  */
 const colorAtoms = defineProperties({
 	conditions: {

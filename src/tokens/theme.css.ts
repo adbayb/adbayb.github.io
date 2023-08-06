@@ -15,7 +15,7 @@ const createSpacings = () => {
 		"-small": `${calc(absoluteSpacings.small).negate()}`,
 		"-medium": `${calc(absoluteSpacings.medium).negate()}`,
 		"-large": `${calc(absoluteSpacings.large).negate()}`,
-	} as const;
+	};
 };
 
 /**
@@ -24,12 +24,30 @@ const createSpacings = () => {
  * Each token value are persisted through CSS variables.
  */
 export const theme = createGlobalTheme(":root", {
+	borders: {
+		radii: {
+			none: tokens.borders.radii[0],
+			small: tokens.borders.radii[1],
+			medium: tokens.borders.radii[2],
+			large: tokens.borders.radii[3],
+			pill: tokens.borders.radii[4],
+			circle: tokens.borders.radii[5],
+		},
+		sizes: {
+			none: tokens.borders.sizes[0],
+			small: tokens.borders.sizes[1],
+			medium: tokens.borders.sizes[2],
+			large: tokens.borders.sizes[3],
+			xlarge: tokens.borders.sizes[4],
+		},
+	},
 	spaces: createSpacings(),
 	sizes: {
 		none: tokens.sizes[0],
 		small: tokens.sizes[1],
 		medium: tokens.sizes[3],
-		large: tokens.sizes[7],
+		large: tokens.sizes[6],
+		xlarge: tokens.sizes[8],
 	},
 	typographies: {
 		body: {
@@ -39,9 +57,12 @@ export const theme = createGlobalTheme(":root", {
 		},
 	},
 	colors: {
-		light: tokens.colors.gray[0],
-		dark: tokens.colors.gray[4],
-		primary: tokens.colors.blue[4],
-		secondary: tokens.colors.blue[2],
+		"neutral.transparent": tokens.colors.transparent,
+		"neutral.light": tokens.colors.white,
+		"neutral.dark": tokens.colors.black,
+		"surface.primary": tokens.colors.blue[4],
+		"surface.secondary": tokens.colors.blue[2],
+		"content.primary": tokens.colors.gray[4],
+		"content.secondary": tokens.colors.gray[3],
 	},
 } as const);
