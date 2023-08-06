@@ -48,6 +48,7 @@ export const tokens = {
 			"rgb(190,128,128)",
 		],
 	},
+	depths: ["0", "10", "20", "30", "40"],
 	fonts: [
 		'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 	],

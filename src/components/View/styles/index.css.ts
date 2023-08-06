@@ -21,11 +21,12 @@ const baseAtoms = defineProperties({
 		borderWidth: theme.thicknesses,
 		overflow: ["auto", "hidden", "scroll", "visible"],
 		pointerEvents: ["none", "auto"],
-		userSelect: ["none", "auto"],
 		transition: {
 			slow: "transform .3s ease, opacity .3s ease",
 			fast: "transform .15s ease, opacity .15s ease",
 		},
+		userSelect: ["none", "auto"],
+		zIndex: theme.depths,
 	},
 });
 
