@@ -1,6 +1,6 @@
 const px = (value: number) => `${value}px`;
 const rem = (value: number) => `${value}rem`;
-const toRemValue = (pxValue: number) => pxValue / 16;
+const fromPx = (value: number) => value / 16;
 
 /**
  * A design token is an indivisible design decision of a design system (such as colors, spacing, typography scale, ...)
@@ -66,25 +66,25 @@ export const tokens = {
 	radii: [px(0), px(4), px(8), px(12), px(999)],
 	sizes: [
 		rem(0),
-		rem(2),
-		rem(4),
-		rem(6),
-		rem(8),
-		rem(10),
-		rem(12),
-		rem(14),
-		rem(16),
+		rem(fromPx(16)),
+		rem(fromPx(32)),
+		rem(fromPx(64)),
+		rem(fromPx(128)),
+		rem(fromPx(256)),
+		rem(fromPx(512)),
+		rem(fromPx(1024)),
+		rem(fromPx(2048)),
 	],
 	spaces: [
 		rem(0),
-		rem(toRemValue(4)),
-		rem(toRemValue(8)),
-		rem(toRemValue(12)),
-		rem(toRemValue(16)),
-		rem(toRemValue(20)),
-		rem(toRemValue(24)),
-		rem(toRemValue(28)),
-		rem(toRemValue(32)),
+		rem(fromPx(4)),
+		rem(fromPx(8)),
+		rem(fromPx(12)),
+		rem(fromPx(16)),
+		rem(fromPx(20)),
+		rem(fromPx(24)),
+		rem(fromPx(28)),
+		rem(fromPx(32)),
 	],
 	thicknesses: [px(0), px(2), px(4), px(6), px(8)],
 } as const;

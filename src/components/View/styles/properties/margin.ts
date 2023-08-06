@@ -9,3 +9,15 @@ export const properties = {
 	marginLeft: values,
 	marginRight: values,
 };
+
+export const shorthands = {
+	margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"] as Array<
+		"marginTop" | "marginBottom" | "marginLeft" | "marginRight"
+	>,
+	marginHorizontal: ["marginLeft", "marginRight"] as Array<
+		"marginLeft" | "marginRight"
+	>,
+	marginVertical: ["marginTop", "marginBottom"] as Array<
+		"marginTop" | "marginBottom"
+	>,
+};

@@ -78,12 +78,8 @@ const responsiveAtoms = defineProperties({
 		textAlign: ["left", "center", "right"],
 	},
 	shorthands: {
-		padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
-		paddingHorizontal: ["paddingLeft", "paddingRight"],
-		paddingVertical: ["paddingTop", "paddingBottom"],
-		margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"],
-		marginHorizontal: ["marginLeft", "marginRight"],
-		marginVertical: ["marginTop", "marginBottom"],
+		...margin.shorthands,
+		...padding.shorthands,
 	},
 });
 
