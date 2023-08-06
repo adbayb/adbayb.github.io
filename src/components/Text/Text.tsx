@@ -1,9 +1,10 @@
 import { View } from "../View";
+import type { Label } from "../types";
 import { stylesByElement } from "./styles.css";
 
 export interface TextProps {
 	as?: "span" | "p" | "strong" | "em" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-	children?: string | number | Array<string | number>;
+	children?: Label;
 }
 
 const DEFAULT_AS = "span";

@@ -1,6 +1,7 @@
 ---
 import { Button } from "../components/Button";
 import { Global } from "../components/Global";
+import { View } from "../components/View";
 ---
 
 <!DOCTYPE html>
@@ -25,16 +26,16 @@ import { Global } from "../components/Global";
 	</head>
 	<body>
 		<main>
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
-			<Button client:load />
+			<View
+				display="flex"
+				padding="medium"
+				gap="small"
+			>
+				<Button client:load>Action</Button>
+				<Button client:load>Action</Button>
+				<Button client:load>Action</Button>
+				<Button client:load>Action</Button>
+			</View>
 		</main>
 	</body>
 </html>

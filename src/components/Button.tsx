@@ -1,7 +1,12 @@
 import { View } from "./View";
 import { Text } from "./Text";
+import type { Label } from "./types";
 
-export const Button = () => {
+interface ButtonProps {
+	children: Label;
+}
+
+export const Button = ({ children }: ButtonProps) => {
 	return (
 		<View
 			as="button"
@@ -12,8 +17,7 @@ export const Button = () => {
 				hover: "surface.secondary",
 			}}
 		>
-			<Text>Span</Text>
-			<Text as="p">P</Text>
+			<Text>{children}</Text>
 		</View>
 	);
 };

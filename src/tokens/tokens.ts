@@ -1,7 +1,6 @@
-const HARMONY_FACTOR = 2;
 const px = (value: number) => `${value}px`;
 const rem = (value: number) => `${value}rem`;
-const toRemValue = (pxValue: number) => Math.floor(pxValue / 16);
+const toRemValue = (pxValue: number) => pxValue / 16;
 
 /**
  * A design token is an indivisible design decision of a design system (such as colors, spacing, typography scale, ...)
@@ -10,14 +9,9 @@ const toRemValue = (pxValue: number) => Math.floor(pxValue / 16);
  */
 export const tokens = {
 	borders: {
-		radii: [px(0), px(2), px(4), px(8), px(9999), "50%"],
-		sizes: [
-			px(0),
-			px(0.5 * HARMONY_FACTOR),
-			px(1 * HARMONY_FACTOR),
-			px(1.5 * HARMONY_FACTOR),
-			px(2 * HARMONY_FACTOR),
-		],
+		radii: [px(0), px(2), px(4), px(6), "50%"],
+		// @todo: include border sizes within root size token + move radii upper in the token structure + apply the same logic within typography tokens
+		sizes: [px(0), px(1), px(2), px(3), px(4)],
 	},
 	colors: {
 		transparent: "transparent",
@@ -61,40 +55,40 @@ export const tokens = {
 	},
 	sizes: [
 		rem(0),
-		rem(1 * HARMONY_FACTOR),
-		rem(2 * HARMONY_FACTOR),
-		rem(3 * HARMONY_FACTOR),
-		rem(5 * HARMONY_FACTOR),
-		rem(8 * HARMONY_FACTOR),
-		rem(12 * HARMONY_FACTOR),
-		rem(24 * HARMONY_FACTOR),
-		rem(36 * HARMONY_FACTOR),
+		rem(2),
+		rem(4),
+		rem(6),
+		rem(8),
+		rem(10),
+		rem(12),
+		rem(14),
+		rem(16),
 	],
 	spaces: [
 		rem(0),
-		rem(toRemValue(1 * HARMONY_FACTOR)),
-		rem(toRemValue(2 * HARMONY_FACTOR)),
-		rem(toRemValue(3 * HARMONY_FACTOR)),
-		rem(toRemValue(5 * HARMONY_FACTOR)),
-		rem(toRemValue(8 * HARMONY_FACTOR)),
-		rem(toRemValue(12 * HARMONY_FACTOR)),
-		rem(toRemValue(24 * HARMONY_FACTOR)),
-		rem(toRemValue(36 * HARMONY_FACTOR)),
+		rem(toRemValue(4)),
+		rem(toRemValue(8)),
+		rem(toRemValue(12)),
+		rem(toRemValue(16)),
+		rem(toRemValue(20)),
+		rem(toRemValue(24)),
+		rem(toRemValue(28)),
+		rem(toRemValue(32)),
 	],
 	typographies: {
 		fonts: [
 			'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
 		],
 		sizes: [
-			px(11),
-			px(13),
+			px(12),
+			px(14),
 			px(16),
 			px(18),
 			px(20),
+			px(22),
 			px(24),
 			px(28),
-			px(36),
-			px(48),
+			px(30),
 		],
 		weights: ["100", "400", "900"],
 	},

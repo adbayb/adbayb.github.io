@@ -1,5 +1,35 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+import { calc } from "@vanilla-extract/css-utils";
 import { theme } from "../../tokens";
+
+/**
+ * Utility type to extract keys while discarding non stringified ones (eg. symbols)
+ * @see https://github.com/microsoft/TypeScript/issues/41196#issuecomment-721828131
+ */
+type ExtractStringifiedKeys<T extends { [k: string]: unknown }> =
+	T extends infer G ? `${string & keyof G}` : never;
+
+const negate = <
+	Props extends Record<string, string>,
+	Keys extends ExtractStringifiedKeys<Props>,
+>(
+	props: Props
+) => {
+	return (Object.keys(props) as Array<Keys>).reduce(
+		(withNegativeProps, key) => {
+			const value = props[key] as string;
+
+			withNegativeProps[key] = value;
+
+			if (key === "none") return withNegativeProps; // no-op
+
+			withNegativeProps[`-${key}`] = `${calc(value).negate()}`;
+
+			return withNegativeProps;
+		},
+		{} as Record<Keys | `-${Exclude<Keys, "none">}`, string>
+	);
+};
 
 /**
  * Basic collection of atoms (or utility classes) that are not impacted by some conditions (such as responsive ones).
@@ -65,14 +95,15 @@ const responsiveAtoms = defineProperties({
 			"space-around",
 		],
 		flexDirection: ["column", "row"],
+		gap: theme.spaces,
 		paddingTop: theme.spaces,
 		paddingBottom: theme.spaces,
 		paddingLeft: theme.spaces,
 		paddingRight: theme.spaces,
-		marginTop: theme.spaces,
-		marginBottom: theme.spaces,
-		marginLeft: theme.spaces,
-		marginRight: theme.spaces,
+		marginTop: negate(theme.spaces),
+		marginBottom: negate(theme.spaces),
+		marginLeft: negate(theme.spaces),
+		marginRight: negate(theme.spaces),
 		opacity: [0, 1],
 		textAlign: ["left", "center", "right"],
 		minWidth: theme.sizes,

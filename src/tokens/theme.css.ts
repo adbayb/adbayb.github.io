@@ -1,22 +1,5 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 import { tokens } from "./tokens";
-
-const createSpacings = () => {
-	const absoluteSpacings = {
-		small: tokens.spaces[2],
-		medium: tokens.spaces[5],
-		large: tokens.spaces[7],
-	};
-
-	return {
-		...absoluteSpacings,
-		none: tokens.spaces[0],
-		"-small": `${calc(absoluteSpacings.small).negate()}`,
-		"-medium": `${calc(absoluteSpacings.medium).negate()}`,
-		"-large": `${calc(absoluteSpacings.large).negate()}`,
-	};
-};
 
 /**
  * Default theme that maps core tokens to semantic ones in order to enable contextual specificities (such as platform (web vs mobile), brand, white labels ones).
@@ -30,8 +13,7 @@ export const theme = createGlobalTheme(":root", {
 			small: tokens.borders.radii[1],
 			medium: tokens.borders.radii[2],
 			large: tokens.borders.radii[3],
-			pill: tokens.borders.radii[4],
-			circle: tokens.borders.radii[5],
+			full: tokens.borders.radii[4],
 		},
 		sizes: {
 			none: tokens.borders.sizes[0],
@@ -41,7 +23,17 @@ export const theme = createGlobalTheme(":root", {
 			xlarge: tokens.borders.sizes[4],
 		},
 	},
-	spaces: createSpacings(),
+	spaces: {
+		none: tokens.spaces[0],
+		small: tokens.spaces[1],
+		medium: tokens.spaces[2],
+		large: tokens.spaces[3],
+		xlarge: tokens.spaces[4],
+		"2xlarge": tokens.spaces[5],
+		"3xlarge": tokens.spaces[6],
+		"4xlarge": tokens.spaces[7],
+		"5xlarge": tokens.spaces[8],
+	},
 	sizes: {
 		none: tokens.sizes[0],
 		small: tokens.sizes[1],
