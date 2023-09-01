@@ -10,16 +10,18 @@ export const properties = {
 };
 
 export const shorthands = {
-	padding: [
-		"paddingTop",
-		"paddingBottom",
-		"paddingLeft",
-		"paddingRight",
-	] as Array<"paddingTop" | "paddingBottom" | "paddingLeft" | "paddingRight">,
-	paddingHorizontal: ["paddingLeft", "paddingRight"] as Array<
-		"paddingLeft" | "paddingRight"
-	>,
-	paddingVertical: ["paddingTop", "paddingBottom"] as Array<
-		"paddingTop" | "paddingBottom"
-	>,
+	padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"] as (
+		| "paddingBottom"
+		| "paddingLeft"
+		| "paddingRight"
+		| "paddingTop"
+	)[],
+	paddingHorizontal: ["paddingLeft", "paddingRight"] as (
+		| "paddingLeft"
+		| "paddingRight"
+	)[],
+	paddingVertical: ["paddingTop", "paddingBottom"] as (
+		| "paddingBottom"
+		| "paddingTop"
+	)[],
 };

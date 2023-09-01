@@ -1,1 +1,1 @@
-export type Label = string | number | Array<Label>;
+export type Label = Label[] | number | string;

@@ -1,4 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
+
 import { theme } from "../../tokens";
 
 /**
@@ -12,7 +13,7 @@ globalStyle(`*`, {
 
 globalStyle(":root", {
 	...theme.typographies.body,
-	color: theme.colors["contentPrimary"],
+	color: theme.colors.contentPrimary,
 	// backgroundColor: theme.colors["surface.primary"],
 	margin: 0,
 	padding: 0,

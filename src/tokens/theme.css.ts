@@ -1,4 +1,5 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
+
 import { tokens } from "./tokens";
 
 /**
@@ -46,7 +47,7 @@ export const theme = createGlobalTheme(":root", {
 		small: tokens.sizes[1],
 		medium: tokens.sizes[3],
 		large: tokens.sizes[6],
-		xlarge: tokens.sizes[8],
+		xlarge: tokens.sizes[7],
 	},
 	thicknesses: {
 		none: tokens.thicknesses[0],

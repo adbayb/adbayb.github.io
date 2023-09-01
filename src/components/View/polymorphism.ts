@@ -1,6 +1,6 @@
 import type { Component, ComponentProps, JSX } from "solid-js";
 
-export type AnyElement = keyof JSX.IntrinsicElements | Component;
+export type AnyElement = Component | keyof JSX.IntrinsicElements;
 
 type PropsOf<As extends AnyElement> = ComponentProps<As>;
 
@@ -12,7 +12,7 @@ export const createPolymorphComponent = <
 	AllowedAs extends AnyElement,
 	DefaultAs extends AllowedAs,
 >(
-	Component: (props: PolymorphicProps<OwnProps, AllowedAs>) => JSX.Element
+	Component: (props: PolymorphicProps<OwnProps, AllowedAs>) => JSX.Element,
 ) => {
 	return Component as {
 		// If `as` is provided consumer-side, use it to infer props:
@@ -29,7 +29,7 @@ export const createPolymorphComponent = <
  */
 type PolymorphicProps<OwnProps extends object, As extends AnyElement> = Omit<
 	PropsOf<As>,
-	keyof OwnProps | "as" | DisallowedAttributes
+	DisallowedAttributes | keyof OwnProps | "as"
 > &
 	OwnProps & {
 		as: As;

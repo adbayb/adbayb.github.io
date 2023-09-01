@@ -1,7 +1,7 @@
 import { theme } from "../../../../tokens";
 import { negate } from "../helpers";
 
-const values = negate(theme.spaces);
+const values = { ...negate(theme.spaces), auto: "auto" };
 
 export const properties = {
 	marginTop: values,
@@ -11,13 +11,18 @@ export const properties = {
 };
 
 export const shorthands = {
-	margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"] as Array<
-		"marginTop" | "marginBottom" | "marginLeft" | "marginRight"
-	>,
-	marginHorizontal: ["marginLeft", "marginRight"] as Array<
-		"marginLeft" | "marginRight"
-	>,
-	marginVertical: ["marginTop", "marginBottom"] as Array<
-		"marginTop" | "marginBottom"
-	>,
+	margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"] as (
+		| "marginBottom"
+		| "marginLeft"
+		| "marginRight"
+		| "marginTop"
+	)[],
+	marginHorizontal: ["marginLeft", "marginRight"] as (
+		| "marginLeft"
+		| "marginRight"
+	)[],
+	marginVertical: ["marginTop", "marginBottom"] as (
+		| "marginBottom"
+		| "marginTop"
+	)[],
 };

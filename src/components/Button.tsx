@@ -2,9 +2,9 @@ import { View } from "./View";
 import { Text } from "./Text";
 import type { Label } from "./types";
 
-interface ButtonProps {
+type ButtonProps = {
 	children: Label;
-}
+};
 
 export const Button = ({ children }: ButtonProps) => {
 	return (
@@ -22,7 +22,9 @@ export const Button = ({ children }: ButtonProps) => {
 			paddingVertical="medium"
 			color="neutralLight"
 			cursor="pointer"
-			onClick={() => console.log("click")}
+			onClick={() => {
+				console.log("click");
+			}}
 		>
 			<Text>{children}</Text>
 		</View>

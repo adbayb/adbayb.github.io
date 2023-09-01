@@ -1,8 +1,16 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+
 import { theme } from "../../../tokens";
-import * as dimension from "./properties/dimension";
-import * as margin from "./properties/margin";
-import * as padding from "./properties/padding";
+
+import { properties } from "./properties/dimension";
+import {
+	properties as marginProperties,
+	shorthands,
+} from "./properties/margin";
+import {
+	properties as paddingProperties,
+	shorthands as paddingShorthands,
+} from "./properties/padding";
 
 /**
  * Basic collection of atoms (or utility classes) that are not impacted by some conditions (such as responsive ones).
@@ -60,9 +68,9 @@ const responsiveAtoms = defineProperties({
 	},
 	defaultCondition: "default",
 	properties: {
-		...dimension.properties,
-		...margin.properties,
-		...padding.properties,
+		...properties,
+		...marginProperties,
+		...paddingProperties,
 		position: ["absolute", "relative", "fixed", "sticky"],
 		display: ["none", "block", "inline", "flex", "inline-flex", "grid"],
 		alignItems: ["flex-start", "center", "flex-end", "stretch"],
@@ -79,8 +87,8 @@ const responsiveAtoms = defineProperties({
 		textAlign: ["left", "center", "right"],
 	},
 	shorthands: {
-		...margin.shorthands,
-		...padding.shorthands,
+		...shorthands,
+		...paddingShorthands,
 	},
 });
 

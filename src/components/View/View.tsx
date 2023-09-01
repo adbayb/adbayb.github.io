@@ -1,13 +1,17 @@
-import { type JSX, splitProps } from "solid-js";
+import { splitProps } from "solid-js";
+import type { JSX } from "solid-js";
 import { Dynamic } from "solid-js/web";
-import { AnyElement, createPolymorphComponent } from "./polymorphism";
-import { type StyleProps, styles } from "./styles/index.css";
 
-export interface ViewProps extends StyleProps {
+import type { AnyElement } from "./polymorphism";
+import { createPolymorphComponent } from "./polymorphism";
+import { styles } from "./styles/index.css";
+import type { StyleProps } from "./styles/index.css";
+
+export type ViewProps = StyleProps & {
 	unsafe_class?: JSX.HTMLAttributes<unknown>["class"];
 	unsafe_style?: JSX.HTMLAttributes<unknown>["style"];
 	children?: JSX.Element;
-}
+};
 
 const DEFAULT_AS = "div";
 const STYLE_PROPS_KEYS = Array.from(styles.properties.keys());
